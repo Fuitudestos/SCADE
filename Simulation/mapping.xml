@@ -1,0 +1,452 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--$********** SCADE Suite KCG 32-bit 6.6 (build i19) ***********
+** Command: kcg66.exe -config C:/Users/3771834/Desktop/tme13/Simulation/config.txt
+** Generation date: 2019-01-22T18:14:27
+*************************************************************$-->
+<mapping>
+  <config>
+    <option name="use_types" value="#off#"/>
+    <option name="imported_root_package" value="#off#"/>
+    <option name="root_package" value="#off#"/>
+    <option name="xml_basename" value="kcg_xml_filter_out.scade"/>
+    <option name="state_vector" value="#off#"/>
+    <option name="static" value="#off#"/>
+    <option name="separate_io_all" value="#off#"/>
+    <option name="no_separate_io" value="#off#"/>
+    <option name="separate_io" value="#off#"/>
+    <option name="warn_error" value="#off#"/>
+    <option name="short_circuit" value="#off#"/>
+    <option name="wrap_c_ops" value="#off#"/>
+    <option name="input_file" value="C:/Users/3771834/Desktop/tme13/Simulation/scade_model_without_unused.scade"/>
+    <option name="probes" value="#on#"/>
+    <option name="no_observe" value="#off#"/>
+    <option name="observe" value="#off#"/>
+    <option name="debug" value="#on#"/>
+    <option name="user_config" value="./user_macros.h"/>
+    <option name="input_threshold" value="#off#"/>
+    <option name="header" value="#off#"/>
+    <option name="significance_length" value="31"/>
+    <option name="name_length" value="200"/>
+    <option name="globals_prefix" value="#off#"/>
+    <option name="keep_asserts" value="#off#"/>
+    <option name="global_root_context" value="#off#"/>
+    <option name="expall" value="#off#"/>
+    <option name="noexp" value="#off#"/>
+    <option name="exp" value="#off#"/>
+    <option name="target_dir" value="C:/Users/3771834/Desktop/tme13/Simulation"/>
+    <option name="target" value="C"/>
+    <option name="root" value="tme13"/>
+    <option name="auth" value="#off#"/>
+  </config>
+  <model>
+    <array id="1" baseType="8" size="4"/>
+    <array id="2" baseType="8" size="3"/>
+    <predefType id="3" name="bool"/>
+    <predefType id="4" name="char"/>
+    <predefType id="5" name="int8"/>
+    <predefType id="6" name="int16"/>
+    <predefType id="7" name="int32"/>
+    <predefType id="8" name="int64"/>
+    <predefType id="9" name="uint8"/>
+    <predefType id="10" name="uint16"/>
+    <predefType id="11" name="uint32"/>
+    <predefType id="12" name="uint64"/>
+    <predefType id="13" name="float32"/>
+    <predefType id="14" name="float64"/>
+    <predefType id="15" name="size"/>
+    <operator id="16" name="tme13" imported="false" root="true" expanded="false">
+      <input id="17" name="startstop" clock="false" type="3"/>
+      <input id="18" name="reset" clock="false" type="3"/>
+      <input id="19" name="mode" clock="false" type="3"/>
+      <output id="20" name="display" clock="false" type="2"/>
+      <signal id="21" name="isClock"/>
+      <local id="22" name="mytime" clock="false" type="2"/>
+      <local id="23" name="myclock" clock="false" type="2"/>
+      <local id="24" name="_L6" clock="false" type="3"/>
+      <local id="25" name="_L7" clock="false" type="1"/>
+      <local id="26" name="_L8" clock="false" type="3"/>
+      <local id="27" name="_L9" clock="false" type="1"/>
+      <local id="28" name="_L11" clock="false" type="2"/>
+      <local id="29" name="_L12" clock="false" type="1"/>
+      <automaton id="30" name="chrono">
+        <state id="31" name="Pause" initial="true" final="false" default="false">
+          <local id="32" name="_L3" clock="false" type="2"/>
+          <local id="33" name="_L4" clock="false" type="2"/>
+          <arrow id="34" name="1"/>
+          <last id="35"/>
+          <fork id="36" name="1" kind="strong">
+            <transition id="37" dest="40"/>
+          </fork>
+          <fork id="38" name="2" kind="strong">
+            <transition id="39" dest="31"/>
+          </fork>
+        </state>
+        <state id="40" name="Run" initial="false" final="false" default="false">
+          <local id="41" name="_L4" clock="false" type="3"/>
+          <local id="42" name="_L5" clock="false" type="2"/>
+          <local id="43" name="_L7" clock="false" type="3"/>
+          <local id="44" name="_L10" clock="false" type="2"/>
+          <local id="45" name="_L11" clock="false" type="2"/>
+          <iterator id="46" name="1" kind="mapfold" size="3">
+            <instance id="47" name="1" op="63" expanded="false"/>
+          </iterator>
+          <last id="48"/>
+          <fork id="49" name="1" kind="strong">
+            <transition id="50" dest="31"/>
+          </fork>
+        </state>
+      </automaton>
+      <iterator id="51" name="4" kind="mapfold" size="4">
+        <instance id="52" name="3" op="63" expanded="false"/>
+      </iterator>
+      <fby id="53" name="1"/>
+      <automaton id="54" name="display">
+        <state id="55" name="DisplayClock" initial="true" final="false" default="false">
+          <local id="56" name="_L3" clock="false" type="2"/>
+          <fork id="57" name="1" kind="strong">
+            <transition id="58" dest="59"/>
+          </fork>
+        </state>
+        <state id="59" name="DisplayTime" initial="false" final="false" default="false">
+          <local id="60" name="_L2" clock="false" type="2"/>
+          <fork id="61" name="1" kind="strong">
+            <transition id="62" dest="55"/>
+          </fork>
+        </state>
+      </automaton>
+    </operator>
+    <operator id="63" name="rawcount" imported="false" root="false" expanded="false">
+      <input id="64" name="incr" clock="false" type="3"/>
+      <input id="65" name="lastcount" clock="false" type="8"/>
+      <input id="66" name="modulo" clock="false" type="8"/>
+      <output id="67" name="rippleclock" clock="false" type="3"/>
+      <output id="68" name="count" clock="false" type="8"/>
+      <local id="69" name="rawcount" clock="false" type="8"/>
+      <local id="70" name="_L1" clock="false" type="3"/>
+      <local id="71" name="_L2" clock="false" type="8"/>
+      <local id="72" name="_L3" clock="false" type="8"/>
+      <local id="73" name="_L5" clock="false" type="8"/>
+      <local id="74" name="_L6" clock="false" type="8"/>
+      <local id="75" name="_L7" clock="false" type="3"/>
+      <local id="76" name="_L9" clock="false" type="8"/>
+      <local id="77" name="_L11" clock="false" type="8"/>
+    </operator>
+  </model>
+  <generated>
+    <c>
+      <file id="78" name="tme13.h">
+        <function id="79" name="tme13_init">
+          <parameter id="80" name="outC" type="86" pointer="true"/>
+        </function>
+        <function id="81" name="tme13_reset">
+          <parameter id="82" name="outC" type="86" pointer="true"/>
+        </function>
+        <function id="83" name="tme13">
+          <parameter id="84" name="inC" type="124" pointer="true"/>
+          <parameter id="85" name="outC" type="86" pointer="true"/>
+        </function>
+        <struct id="86" name="outC_tme13">
+          <field id="87" name="display" type="161" pointer="false"/>
+          <field id="88" name="init" type="212" pointer="false"/>
+          <field id="89" name="init1" type="212" pointer="false"/>
+          <field id="90" name="chrono_state_nxt" type="163" pointer="false"/>
+          <field id="91" name="chrono_reset_act" type="212" pointer="false"/>
+          <field id="92" name="chrono_reset_nxt" type="212" pointer="false"/>
+          <field id="93" name="display_state_nxt" type="171" pointer="false"/>
+          <field id="94" name="display_reset_act" type="212" pointer="false"/>
+          <field id="95" name="display_reset_nxt" type="212" pointer="false"/>
+          <field id="96" name="mytime" type="161" pointer="false"/>
+          <field id="97" name="myclock" type="161" pointer="false"/>
+          <field id="98" name="_L7" type="162" pointer="false"/>
+          <field id="99" name="Context_rawcount_3" type="138" pointer="false" size="[4]"/>
+          <field id="100" name="Context_rawcount_1" type="138" pointer="false" size="[3]"/>
+          <field id="101" name="chrono_state_act" type="163" pointer="false"/>
+          <field id="102" name="display_state_act" type="171" pointer="false"/>
+          <field id="103" name="_L3_DisplayClock_display" type="161" pointer="false"/>
+          <field id="104" name="_L2_DisplayTime_display" type="161" pointer="false"/>
+          <field id="105" name="_L4_Pause_chrono" type="161" pointer="false"/>
+          <field id="106" name="_L3_Pause_chrono" type="161" pointer="false"/>
+          <field id="107" name="_L11_Run_chrono" type="161" pointer="false"/>
+          <field id="108" name="_L10_Run_chrono" type="161" pointer="false"/>
+          <field id="109" name="_L7_Run_chrono" type="212" pointer="false"/>
+          <field id="110" name="_L5_Run_chrono" type="161" pointer="false"/>
+          <field id="111" name="_L4_Run_chrono" type="212" pointer="false"/>
+          <field id="112" name="isClock" type="212" pointer="false"/>
+          <field id="113" name="chrono_state_sel" type="163" pointer="false"/>
+          <field id="114" name="chrono_fired_strong" type="166" pointer="false"/>
+          <field id="115" name="chrono_fired" type="166" pointer="false"/>
+          <field id="116" name="display_state_sel" type="171" pointer="false"/>
+          <field id="117" name="display_fired_strong" type="174" pointer="false"/>
+          <field id="118" name="display_fired" type="174" pointer="false"/>
+          <field id="119" name="_L6" type="212" pointer="false"/>
+          <field id="120" name="_L8" type="212" pointer="false"/>
+          <field id="121" name="_L9" type="162" pointer="false"/>
+          <field id="122" name="_L11" type="161" pointer="false"/>
+          <field id="123" name="_L12" type="162" pointer="false"/>
+        </struct>
+        <struct id="124" name="inC_tme13">
+          <field id="125" name="startstop" type="212" pointer="false"/>
+          <field id="126" name="reset" type="212" pointer="false"/>
+          <field id="127" name="mode" type="212" pointer="false"/>
+        </struct>
+      </file>
+      <file id="128" name="rawcount.h">
+        <function id="129" name="rawcount_init">
+          <parameter id="130" name="outC" type="138" pointer="true"/>
+        </function>
+        <function id="131" name="rawcount_reset">
+          <parameter id="132" name="outC" type="138" pointer="true"/>
+        </function>
+        <function id="133" name="rawcount">
+          <parameter id="134" name="incr" type="212" pointer="false"/>
+          <parameter id="135" name="lastcount" type="204" pointer="false"/>
+          <parameter id="136" name="modulo" type="204" pointer="false"/>
+          <parameter id="137" name="outC" type="138" pointer="true"/>
+        </function>
+        <struct id="138" name="outC_rawcount">
+          <field id="139" name="rippleclock" type="212" pointer="false"/>
+          <field id="140" name="count" type="204" pointer="false"/>
+          <field id="141" name="rawcount" type="204" pointer="false"/>
+          <field id="142" name="_L1" type="212" pointer="false"/>
+          <field id="143" name="_L2" type="204" pointer="false"/>
+          <field id="144" name="_L3" type="204" pointer="false"/>
+          <field id="145" name="_L5" type="204" pointer="false"/>
+          <field id="146" name="_L6" type="204" pointer="false"/>
+          <field id="147" name="_L7" type="212" pointer="false"/>
+          <field id="148" name="_L9" type="204" pointer="false"/>
+          <field id="149" name="_L11" type="204" pointer="false"/>
+        </struct>
+      </file>
+      <file id="150" name="kcg_types.h">
+        <ifdef id="151" name="kcg_use_array_int64_4">
+          <function id="152" name="kcg_comp_array_int64_4" returnType="212">
+            <parameter id="157" name="kcg_c1" type="162" pointer="true"/>
+            <parameter id="158" name="kcg_c2" type="162" pointer="true"/>
+          </function>
+        </ifdef>
+        <ifdef id="155" name="kcg_use_array_int64_3">
+          <function id="156" name="kcg_comp_array_int64_3" returnType="212">
+            <parameter id="157" name="kcg_c1" type="161" pointer="true"/>
+            <parameter id="158" name="kcg_c2" type="161" pointer="true"/>
+          </function>
+        </ifdef>
+        <macro id="159" name="kcg_copy_array_int64_4"/>
+        <macro id="160" name="kcg_copy_array_int64_3"/>
+        <array id="161" name="array_int64_3" baseType="204" size="3"/>
+        <array id="162" name="array_int64_4" baseType="204" size="4"/>
+        <enum id="163" name="SSM_ST_chrono" tagName="kcg_tag_SSM_ST_chrono">
+          <value id="164" name="SSM_st_Pause_chrono"/>
+          <value id="165" name="SSM_st_Run_chrono"/>
+        </enum>
+        <enum id="166" name="SSM_TR_chrono" tagName="kcg_tag_SSM_TR_chrono">
+          <value id="167" name="SSM_TR_no_trans_chrono"/>
+          <value id="168" name="SSM_TR_Pause_Run_1_Pause_chrono"/>
+          <value id="169" name="SSM_TR_Pause_Pause_2_Pause_chrono"/>
+          <value id="170" name="SSM_TR_Run_Pause_1_Run_chrono"/>
+        </enum>
+        <enum id="171" name="SSM_ST_display" tagName="kcg_tag_SSM_ST_display">
+          <value id="172" name="SSM_st_DisplayClock_display"/>
+          <value id="173" name="SSM_st_DisplayTime_display"/>
+        </enum>
+        <enum id="174" name="SSM_TR_display" tagName="kcg_tag_SSM_TR_display">
+          <value id="175" name="SSM_TR_no_trans_display"/>
+          <value id="176" name="SSM_TR_DisplayClock_DisplayTime_1_DisplayClock_display"/>
+          <value id="177" name="SSM_TR_DisplayTime_DisplayClock_1_DisplayTime_display"/>
+        </enum>
+        <macro id="178" name="kcg_assign_array"/>
+        <macro id="179" name="kcg_assign_struct"/>
+        <macro id="180" name="kcg_lnot_uint8"/>
+        <macro id="181" name="kcg_lnot_uint16"/>
+        <macro id="182" name="kcg_lnot_uint32"/>
+        <macro id="183" name="kcg_lnot_uint64"/>
+        <macro id="184" name="kcg_lsl_uint8"/>
+        <macro id="185" name="kcg_lsl_uint16"/>
+        <macro id="186" name="kcg_lsl_uint32"/>
+        <macro id="187" name="kcg_lsl_uint64"/>
+        <macro id="188" name="kcg_true"/>
+        <macro id="189" name="kcg_false"/>
+        <macro id="190" name="kcg_lit_int8"/>
+        <macro id="191" name="kcg_lit_int16"/>
+        <macro id="192" name="kcg_lit_int32"/>
+        <macro id="193" name="kcg_lit_int64"/>
+        <macro id="194" name="kcg_lit_uint8"/>
+        <macro id="195" name="kcg_lit_uint16"/>
+        <macro id="196" name="kcg_lit_uint32"/>
+        <macro id="197" name="kcg_lit_uint64"/>
+        <macro id="198" name="kcg_lit_size"/>
+        <macro id="199" name="kcg_lit_float64"/>
+        <macro id="200" name="kcg_lit_float32"/>
+        <predefType id="201" name="kcg_int8"/>
+        <predefType id="202" name="kcg_int16"/>
+        <predefType id="203" name="kcg_int32"/>
+        <predefType id="204" name="kcg_int64"/>
+        <predefType id="205" name="kcg_uint8"/>
+        <predefType id="206" name="kcg_uint16"/>
+        <predefType id="207" name="kcg_uint32"/>
+        <predefType id="208" name="kcg_uint64"/>
+        <predefType id="209" name="kcg_size"/>
+        <predefType id="210" name="kcg_float64"/>
+        <predefType id="211" name="kcg_float32"/>
+        <predefType id="212" name="kcg_bool"/>
+        <predefType id="213" name="kcg_char"/>
+        <macro id="214" name="KCG_MAPW_CPY"/>
+      </file>
+      <file id="215" name="kcg_consts.h"/>
+      <file id="216" name="kcg_sensors.h"/>
+    </c>
+    <map srcId="210" dstId="199" role="wrapped-lit"/>
+    <map srcId="211" dstId="200" role="wrapped-lit"/>
+    <map srcId="209" dstId="198" role="wrapped-lit"/>
+    <map srcId="208" dstId="197" role="wrapped-lit"/>
+    <map srcId="208" dstId="183" role="wrapped-lnot"/>
+    <map srcId="208" dstId="187" role="wrapped-lsl"/>
+    <map srcId="207" dstId="196" role="wrapped-lit"/>
+    <map srcId="207" dstId="182" role="wrapped-lnot"/>
+    <map srcId="207" dstId="186" role="wrapped-lsl"/>
+    <map srcId="206" dstId="195" role="wrapped-lit"/>
+    <map srcId="206" dstId="181" role="wrapped-lnot"/>
+    <map srcId="206" dstId="185" role="wrapped-lsl"/>
+    <map srcId="205" dstId="194" role="wrapped-lit"/>
+    <map srcId="205" dstId="180" role="wrapped-lnot"/>
+    <map srcId="205" dstId="184" role="wrapped-lsl"/>
+    <map srcId="204" dstId="193" role="wrapped-lit"/>
+    <map srcId="203" dstId="192" role="wrapped-lit"/>
+    <map srcId="202" dstId="191" role="wrapped-lit"/>
+    <map srcId="201" dstId="190" role="wrapped-lit"/>
+    <map srcId="162" dstId="151" role="type-use"/>
+    <map srcId="162" dstId="152" role="type-comparison"/>
+    <map srcId="162" dstId="159" role="type-copy"/>
+    <map srcId="161" dstId="155" role="type-use"/>
+    <map srcId="161" dstId="156" role="type-comparison"/>
+    <map srcId="161" dstId="160" role="type-copy"/>
+    <map srcId="111" dstId="101" role="clock"/>
+    <map srcId="111" dstId="165" role="clock-value"/>
+    <map srcId="110" dstId="101" role="clock"/>
+    <map srcId="110" dstId="165" role="clock-value"/>
+    <map srcId="109" dstId="101" role="clock"/>
+    <map srcId="109" dstId="165" role="clock-value"/>
+    <map srcId="108" dstId="101" role="clock"/>
+    <map srcId="108" dstId="165" role="clock-value"/>
+    <map srcId="107" dstId="101" role="clock"/>
+    <map srcId="107" dstId="165" role="clock-value"/>
+    <map srcId="106" dstId="101" role="clock"/>
+    <map srcId="106" dstId="164" role="clock-value"/>
+    <map srcId="105" dstId="101" role="clock"/>
+    <map srcId="105" dstId="164" role="clock-value"/>
+    <map srcId="104" dstId="102" role="clock"/>
+    <map srcId="104" dstId="173" role="clock-value"/>
+    <map srcId="103" dstId="102" role="clock"/>
+    <map srcId="103" dstId="172" role="clock-value"/>
+    <map srcId="100" dstId="101" role="clock"/>
+    <map srcId="100" dstId="165" role="clock-value"/>
+  </generated>
+  <map modelId="39" generatedId="169"/>
+  <map modelId="37" generatedId="168"/>
+  <map modelId="30" generatedId="167" role="autom-no-trans-enum"/>
+  <map modelId="50" generatedId="170"/>
+  <map modelId="40" generatedId="165"/>
+  <map modelId="31" generatedId="164"/>
+  <map modelId="58" generatedId="176"/>
+  <map modelId="54" generatedId="175" role="autom-no-trans-enum"/>
+  <map modelId="62" generatedId="177"/>
+  <map modelId="59" generatedId="173"/>
+  <map modelId="55" generatedId="172"/>
+  <map modelId="16" generatedId="80" role="context-parameter"/>
+  <map modelId="16" generatedId="79" role="init-method"/>
+  <map modelId="16" generatedId="82" role="context-parameter"/>
+  <map modelId="16" generatedId="81" role="reset-method"/>
+  <map modelId="16" generatedId="84" role="input-struct-parameter"/>
+  <map modelId="19" generatedId="127"/>
+  <map modelId="18" generatedId="126"/>
+  <map modelId="17" generatedId="125"/>
+  <map modelId="16" generatedId="124" role="input-struct-type"/>
+  <map modelId="16" generatedId="85" role="context-parameter"/>
+  <map modelId="29" generatedId="123"/>
+  <map modelId="28" generatedId="122"/>
+  <map modelId="27" generatedId="121"/>
+  <map modelId="26" generatedId="120"/>
+  <map modelId="24" generatedId="119"/>
+  <map modelId="54" generatedId="118" role="autom-weak-transition"/>
+  <map modelId="54" generatedId="117" role="autom-strong-transition"/>
+  <map modelId="54" generatedId="116" role="autom-selected-state"/>
+  <map modelId="30" generatedId="115" role="autom-weak-transition"/>
+  <map modelId="30" generatedId="114" role="autom-strong-transition"/>
+  <map modelId="30" generatedId="113" role="autom-selected-state"/>
+  <map modelId="21" generatedId="112"/>
+  <map modelId="41" generatedId="111"/>
+  <map modelId="42" generatedId="110"/>
+  <map modelId="43" generatedId="109"/>
+  <map modelId="44" generatedId="108"/>
+  <map modelId="45" generatedId="107"/>
+  <map modelId="32" generatedId="106"/>
+  <map modelId="33" generatedId="105"/>
+  <map modelId="60" generatedId="104"/>
+  <map modelId="56" generatedId="103"/>
+  <map modelId="54" generatedId="102" role="autom-active-state"/>
+  <map modelId="30" generatedId="101" role="autom-active-state"/>
+  <map modelId="47" generatedId="100"/>
+  <map modelId="52" generatedId="99"/>
+  <map modelId="25" generatedId="98"/>
+  <map modelId="53" generatedId="98" role="memory"/>
+  <map modelId="23" generatedId="97"/>
+  <map modelId="22" generatedId="96"/>
+  <map modelId="35" generatedId="96" role="memory"/>
+  <map modelId="48" generatedId="96" role="memory"/>
+  <map modelId="54" generatedId="95" role="autom-next-reset"/>
+  <map modelId="54" generatedId="94" role="autom-active-reset"/>
+  <map modelId="54" generatedId="93" role="autom-next-state"/>
+  <map modelId="30" generatedId="92" role="autom-next-reset"/>
+  <map modelId="30" generatedId="91" role="autom-active-reset"/>
+  <map modelId="30" generatedId="90" role="autom-next-state"/>
+  <map modelId="34" generatedId="89" role="init"/>
+  <map modelId="53" generatedId="88" role="init"/>
+  <map modelId="20" generatedId="87"/>
+  <map modelId="16" generatedId="86" role="context-type"/>
+  <map modelId="16" generatedId="78" role="interface-file"/>
+  <map modelId="16" generatedId="83" role="cycle-method"/>
+  <map modelId="63" generatedId="130" role="context-parameter"/>
+  <map modelId="63" generatedId="129" role="init-method"/>
+  <map modelId="63" generatedId="132" role="context-parameter"/>
+  <map modelId="63" generatedId="131" role="reset-method"/>
+  <map modelId="66" generatedId="136"/>
+  <map modelId="65" generatedId="135"/>
+  <map modelId="64" generatedId="134"/>
+  <map modelId="63" generatedId="137" role="context-parameter"/>
+  <map modelId="77" generatedId="149"/>
+  <map modelId="76" generatedId="148"/>
+  <map modelId="75" generatedId="147"/>
+  <map modelId="74" generatedId="146"/>
+  <map modelId="73" generatedId="145"/>
+  <map modelId="72" generatedId="144"/>
+  <map modelId="71" generatedId="143"/>
+  <map modelId="70" generatedId="142"/>
+  <map modelId="69" generatedId="141"/>
+  <map modelId="68" generatedId="140"/>
+  <map modelId="67" generatedId="139"/>
+  <map modelId="63" generatedId="138" role="context-type"/>
+  <map modelId="63" generatedId="128" role="interface-file"/>
+  <map modelId="63" generatedId="133" role="cycle-method"/>
+  <map modelId="54" generatedId="174" role="autom-transitions-type"/>
+  <map modelId="54" generatedId="171" role="autom-states-type"/>
+  <map modelId="30" generatedId="166" role="autom-transitions-type"/>
+  <map modelId="30" generatedId="163" role="autom-states-type"/>
+  <map modelId="1" generatedId="162"/>
+  <map modelId="2" generatedId="161"/>
+  <map modelId="4" generatedId="213"/>
+  <map modelId="3" generatedId="212"/>
+  <map modelId="14" generatedId="210"/>
+  <map modelId="13" generatedId="211"/>
+  <map modelId="15" generatedId="209"/>
+  <map modelId="12" generatedId="208"/>
+  <map modelId="11" generatedId="207"/>
+  <map modelId="10" generatedId="206"/>
+  <map modelId="9" generatedId="205"/>
+  <map modelId="8" generatedId="204"/>
+  <map modelId="7" generatedId="203"/>
+  <map modelId="6" generatedId="202"/>
+  <map modelId="5" generatedId="201"/>
+</mapping>
+<!--$********** SCADE Suite KCG 32-bit 6.6 (build i19) ***********
+** mapping.xml
+** Generation date: 2019-01-22T18:14:27
+*************************************************************$-->

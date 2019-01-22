@@ -1,0 +1,66 @@
+$**************  SCADETOC Version 18.2 (build i9) **************
+** Generation date: 2019-01-22T18:14:27
+** Command: scade -code "C:\Users\3771834\Desktop\tme13\tme13.etp" -root tme13 -conf Simulation -build
+*************************************************************$
+*** Generated Files Information (GENFIL): KCG- Generated files
+  at file C:\Users\3771834\Desktop\tme13\Simulation\mapping.xml, line 0, character 0
+ ~mapping.xml
+  at file C:\Users\3771834\Desktop\tme13\Simulation\kcg_metrics.txt, line 0, character 0
+ ~kcg_metrics.txt
+  at file C:\Users\3771834\Desktop\tme13\Simulation\tme13.c, line 0, character 0
+ ~tme13.c
+  at file C:\Users\3771834\Desktop\tme13\Simulation\rawcount.c, line 0, character 0
+ ~rawcount.c
+  at file C:\Users\3771834\Desktop\tme13\Simulation\tme13.h, line 0, character 0
+ ~tme13.h
+  at file C:\Users\3771834\Desktop\tme13\Simulation\rawcount.h, line 0, character 0
+ ~rawcount.h
+  at file C:\Users\3771834\Desktop\tme13\Simulation\kcg_types.h, line 0, character 0
+ ~kcg_types.h
+  at file C:\Users\3771834\Desktop\tme13\Simulation\kcg_consts.h, line 0, character 0
+ ~kcg_consts.h
+  at file C:\Users\3771834\Desktop\tme13\Simulation\kcg_sensors.h, line 0, character 0
+ ~kcg_sensors.h
+  at file C:\Users\3771834\Desktop\tme13\Simulation\kcg_types.c, line 0, character 0
+ ~kcg_types.c
+  at file C:\Users\3771834\Desktop\tme13\Simulation\kcg_consts.c, line 0, character 0
+ ~kcg_consts.c
+  at file C:\Users\3771834\Desktop\tme13\Simulation\config.txt, line 0, character 0
+ ~config.txt
+*** Generated Files Information (GENFIL): Code Generator Generated files
+  at file C:\Users\3771834\Desktop\tme13\Simulation\user_macros.h, line 0, character 0
+ ~user_macros.h
+  at file C:\Users\3771834\Desktop\tme13\Simulation\kcg_imported_types.h, line 0, character 0
+ ~kcg_imported_types.h
+  at file C:\Users\3771834\Desktop\tme13\Simulation\sc2c.log, line 0, character 0
+ ~sc2c.log
+  at file C:\Users\3771834\Desktop\tme13\Simulation\sc2c_integration_files.txt, line 0, character 0
+ ~sc2c_integration_files.txt
+*** Generated Files Information (GENFIL): Type Utils Generated files
+  at file C:\Users\3771834\Desktop\tme13\Simulation\tme13_type.h, line 0, character 0
+ ~tme13_type.h
+  at file C:\Users\3771834\Desktop\tme13\Simulation\tme13_type.c, line 0, character 0
+ ~tme13_type.c
+*** Generated Files Information (GENFIL): Mapping Utils Generated files
+  at file C:\Users\3771834\Desktop\tme13\Simulation\tme13_mapping.h, line 0, character 0
+ ~tme13_mapping.h
+  at file C:\Users\3771834\Desktop\tme13\Simulation\tme13_mapping.c, line 0, character 0
+ ~tme13_mapping.c
+*** Generated Files Information (GENFIL): Simulator Generated files
+  at file C:\Users\3771834\Desktop\tme13\Simulation\tme13_interface.h, line 0, character 0
+ ~tme13_interface.h
+  at file C:\Users\3771834\Desktop\tme13\Simulation\tme13_interface.c, line 0, character 0
+ ~tme13_interface.c
+  at file C:\Users\3771834\Desktop\tme13\Simulation\tme13_dll.c, line 0, character 0
+ ~tme13_dll.c
+*** Generated Files Information (GENFIL): Build Generated files
+  at file C:\Users\3771834\Desktop\tme13\Simulation\Makefile_win64, line 0, character 0
+ ~Makefile_win64
+  at file C:\Users\3771834\Desktop\tme13\Simulation\tme13.dll, line 0, character 0
+ ~tme13.dll
+  at file C:\Users\3771834\Desktop\tme13\Simulation\tme13.exe, line 0, character 0
+ ~tme13.exe
+$**************  SCADETOC Version 18.2 (build i9) **************
+** Generation date: 2019-01-22T18:14:28
+** sc2c.log
+*************************************************************$

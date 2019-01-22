@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+  <Model commandLine="" date="">
+    <Option name="use_types" value="#off#"/>
+    <Option name="imported_root_package" value="#off#"/>
+    <Option name="root_package" value="#off#"/>
+    <Option name="xml_basename" value="kcg_xml_filter_out.scade"/>
+    <Option name="state_vector" value="#off#"/>
+    <Option name="static" value="#off#"/>
+    <Option name="separate_io_all" value="#off#"/>
+    <Option name="no_separate_io" value="#off#"/>
+    <Option name="separate_io" value="#off#"/>
+    <Option name="warn_error" value="#off#"/>
+    <Option name="short_circuit" value="#off#"/>
+    <Option name="wrap_c_ops" value="#off#"/>
+    <Option name="input_file" value="C:/Program Files/ANSYS Inc/v182/SCADE/SCADE/libraries/SC65/libverif/libverif.xscade"/>
+    <Option name="input_file" value="C:/Program Files/ANSYS Inc/v182/SCADE/SCADE/libraries/SC65/libpwlinear/lut.xscade"/>
+    <Option name="input_file" value="C:/Program Files/ANSYS Inc/v182/SCADE/SCADE/libraries/SC65/libpwlinear/pwlinear.xscade"/>
+    <Option name="input_file" value="C:/Program Files/ANSYS Inc/v182/SCADE/SCADE/libraries/SC65/libmathext/mathext.xscade"/>
+    <Option name="input_file" value="C:/Program Files/ANSYS Inc/v182/SCADE/SCADE/libraries/SC65/libmath/math.xscade"/>
+    <Option name="input_file" value="C:/Program Files/ANSYS Inc/v182/SCADE/SCADE/libraries/SC65/libmath/vect.xscade"/>
+    <Option name="input_file" value="C:/Program Files/ANSYS Inc/v182/SCADE/SCADE/libraries/SC65/liblinear/filters.xscade"/>
+    <Option name="input_file" value="C:/Program Files/ANSYS Inc/v182/SCADE/SCADE/libraries/SC65/liblinear/linear.xscade"/>
+    <Option name="input_file" value="C:/Program Files/ANSYS Inc/v182/SCADE/SCADE/libraries/SC65/libdigital/TruthTables.xscade"/>
+    <Option name="input_file" value="C:/Program Files/ANSYS Inc/v182/SCADE/SCADE/libraries/SC65/libdigital/digital.xscade"/>
+    <Option name="input_file" value="C:/Users/3771834/Desktop/tme13/Operator3.xscade"/>
+    <Option name="input_file" value="C:/Users/3771834/Desktop/tme13/Operator2.xscade"/>
+    <Option name="input_file" value="C:/Users/3771834/Desktop/tme13/Operator1.xscade"/>
+    <Option name="probes" value="#off#"/>
+    <Option name="debug" value="#off#"/>
+    <Option name="no_observe" value="#off#"/>
+    <Option name="observe" value="#off#"/>
+    <Option name="user_config" value="./user_macros.h"/>
+    <Option name="input_threshold" value="#off#"/>
+    <Option name="header" value="#off#"/>
+    <Option name="significance_length" value="31"/>
+    <Option name="name_length" value="200"/>
+    <Option name="globals_prefix" value="#off#"/>
+    <Option name="keep_asserts" value="#off#"/>
+    <Option name="global_root_context" value="#off#"/>
+    <Option name="expall" value="#off#"/>
+    <Option name="noexp" value="#off#"/>
+    <Option name="exp" value="#off#"/>
+    <Option name="target_dir" value="C:/Users/3771834/Desktop/tme13/KCG"/>
+    <Option name="target" value="C"/>
+    <Option name="root" value="tme13"/>
+    <Option name="auth" value="#off#"/>
+    <NoExpNode headerFile="rawcount.h" scadeName="rawcount" targetCycleFct="rawcount">
+      <Input scadeName="incr" scadeType="bool" targetName="incr" targetType="kcg_bool"/>
+      <Input scadeName="lastcount" scadeType="int64" targetName="lastcount" targetType="kcg_int64"/>
+      <Input scadeName="modulo" scadeType="int64" targetName="modulo" targetType="kcg_int64"/>
+      <Output scadeName="rippleclock" scadeType="bool" targetName="rippleclock" targetType="kcg_bool"/>
+      <Output scadeName="count" scadeType="int64" targetName="count" targetType="kcg_int64"/>
+    </NoExpNode>
+    <RootNode headerFile="tme13.h" scadeName="tme13" targetCycleFct="tme13" targetInitFct="tme13_reset" targetInitializationFct="tme13_init">
+      <Input inCtx="true" scadeName="startstop" scadeType="bool" targetName="startstop" targetType="kcg_bool"/>
+      <Input inCtx="true" scadeName="reset" scadeType="bool" targetName="reset" targetType="kcg_bool"/>
+      <Input inCtx="true" scadeName="mode" scadeType="bool" targetName="mode" targetType="kcg_bool"/>
+      <Output inCtx="true" scadeName="display" scadeType="int64^(3)" targetName="display" targetType="array_int64_3"/>
+      <Automaton scadeName="chrono" targetStatesType="SSM_ST_chrono" targetTransitionsType="SSM_TR_chrono">
+        <State scadeName="Pause" targetName="SSM_st_Pause_chrono">
+          <InitOp instName="1"/>
+          <Last/>
+          <Fork priority="1">
+            <Condition/>
+            <Transition kind="strong" scadeDest="Run" targetName="SSM_TR_Pause_Run_1_Pause_chrono"/>
+          </Fork>
+          <Fork priority="2">
+            <Condition/>
+            <Transition kind="strong" scadeDest="Pause" targetName="SSM_TR_Pause_Pause_2_Pause_chrono"/>
+          </Fork>
+        </State>
+        <State scadeName="Run" targetName="SSM_st_Run_chrono">
+          <Iterator instName="1" iteratorKind="mapfold" scadeSize="3" targetSize="3">
+            <NodeInstance instName="1" refName="rawcount" scadeName="rawcount"/>
+          </Iterator>
+          <Last/>
+          <Fork priority="1">
+            <Condition/>
+            <Transition kind="strong" scadeDest="Pause" targetName="SSM_TR_Run_Pause_1_Run_chrono"/>
+          </Fork>
+        </State>
+        <NextState inCtx="true" mem="true" targetName="chrono_state_nxt"/>
+      </Automaton>
+      <Iterator instName="4" iteratorKind="mapfold" scadeSize="4" targetSize="4">
+        <NodeInstance instName="3" refName="rawcount" scadeName="rawcount"/>
+      </Iterator>
+      <FbyOp instName="1">
+        <Memory inCtx="true" targetName="_L7" targetType="array_int64_4"/>
+      </FbyOp>
+      <Automaton scadeName="display" targetStatesType="SSM_ST_display" targetTransitionsType="SSM_TR_display">
+        <State scadeName="DisplayClock" targetName="SSM_st_DisplayClock_display">
+          <Fork priority="1">
+            <Condition/>
+            <Transition kind="strong" scadeDest="DisplayTime" targetName="SSM_TR_DisplayClock_DisplayTime_1_DisplayClock_display"/>
+          </Fork>
+        </State>
+        <State scadeName="DisplayTime" targetName="SSM_st_DisplayTime_display">
+          <Fork priority="1">
+            <Condition/>
+            <Transition kind="strong" scadeDest="DisplayClock" targetName="SSM_TR_DisplayTime_DisplayClock_1_DisplayTime_display"/>
+          </Fork>
+        </State>
+        <NextState inCtx="true" mem="true" targetName="display_state_nxt"/>
+      </Automaton>
+      <Memory inCtx="true" targetName="_L7" targetType="array_int64_4"/>
+      <Memory inCtx="true" targetName="mytime" targetType="array_int64_3"/>
+      <Init inCtx="true" targetName="init" targetType="kcg_bool"/>
+      <OutCtxType targetName="outC_tme13"/>
+      <InCtxType targetName="inC_tme13"/>
+    </RootNode>
+    <Package scadeName="digital"/>
+    <Package scadeName="truthtables">
+      <EnumType scadeName="TruthTableValues" targetName="TruthTableValues_truthtables">
+        <EnumVal scadeName="T" targetName="T_truthtables"/>
+        <EnumVal scadeName="F" targetName="F_truthtables"/>
+        <EnumVal scadeName="X" targetName="X_truthtables"/>
+      </EnumType>
+    </Package>
+    <Package scadeName="linear"/>
+    <Package scadeName="filters"/>
+    <Package scadeName="vect"/>
+    <Package scadeName="math"/>
+    <Package scadeName="mathext">
+      <Package scadeName="mathextimpl"/>
+    </Package>
+    <Package scadeName="pwlinear"/>
+    <Package scadeName="lut"/>
+    <Package scadeName="verif"/>
+    <ArrayType cellType="kcg_int64" size="3" targetCompFct="kcg_comp_array_int64_3" targetCopyFct="kcg_copy_array_int64_3" targetName="array_int64_3"/>
+    <ArrayType cellType="kcg_int64" size="4" targetCompFct="kcg_comp_array_int64_4" targetCopyFct="kcg_copy_array_int64_4" targetName="array_int64_4"/>
+    <PredefType scadeName="int8" targetName="kcg_int8"/>
+    <PredefType scadeName="int16" targetName="kcg_int16"/>
+    <PredefType scadeName="int32" targetName="kcg_int32"/>
+    <PredefType scadeName="int64" targetName="kcg_int64"/>
+    <PredefType scadeName="uint8" targetName="kcg_uint8"/>
+    <PredefType scadeName="uint16" targetName="kcg_uint16"/>
+    <PredefType scadeName="uint32" targetName="kcg_uint32"/>
+    <PredefType scadeName="uint64" targetName="kcg_uint64"/>
+    <PredefType scadeName="size" targetName="kcg_size"/>
+    <PredefType scadeName="float32" targetName="kcg_float32"/>
+    <PredefType scadeName="float64" targetName="kcg_float64"/>
+    <PredefType scadeName="bool" targetName="kcg_bool"/>
+    <PredefType scadeName="char" targetName="kcg_char"/>
+  </Model>
