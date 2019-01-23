@@ -55,11 +55,11 @@ void watch_clock_bang(t_watch_clock *x)
   x->inC.startstop = kcg_false;
   x->inC.mode = kcg_false;
   x->inC.reset = kcg_false;
-  
+
   /* send the old counter-value to the 1st outlet of the object */
-  heures = x->outC.display[0];
+  heures = x->outC.display[2];
   minutes = x->outC.display[1];
-  seconds = x->outC.display[2];
+  seconds = x->outC.display[0];
 
   outlet_float(x->h_out, heures);
   outlet_float(x->m_out, minutes);

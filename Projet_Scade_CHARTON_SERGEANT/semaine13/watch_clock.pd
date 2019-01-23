@@ -1,0 +1,24 @@
+#N canvas 2354 326 637 477 10;
+#X floatatom 136 263 5 0 0 0 - - -, f 5;
+#X floatatom 77 263 5 0 0 0 - - -, f 5;
+#X floatatom 20 264 5 0 0 0 - - -, f 5;
+#X text 59 263 H;
+#X text 117 262 M;
+#X text 175 263 S;
+#X obj 62 28 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1 1
+;
+#X obj 62 164 watch_clock;
+#X msg 180 81 startstop;
+#X msg 181 106 mode;
+#X msg 182 133 reset;
+#X floatatom 115 28 5 0 0 0 - - -, f 5;
+#X obj 62 76 metro 10;
+#X connect 6 0 12 0;
+#X connect 7 0 2 0;
+#X connect 7 1 1 0;
+#X connect 7 2 0 0;
+#X connect 8 0 7 0;
+#X connect 9 0 7 0;
+#X connect 10 0 7 0;
+#X connect 11 0 12 1;
+#X connect 12 0 7 0;
